@@ -1,3 +1,4 @@
+import Cell from './Cell';
 import './Maze.css';
 
 const getBorderClasses = (node) => {
@@ -124,11 +125,7 @@ const Maze = (props) => {
 
   for (let [key, node] of Object.entries(maze)) {
     let classNames = getBorderClasses(node);
-    elements.push(<div key={key} className={classNames}>{node.id}</div>);
-  }
-
-  for (let ele of elements) {
-    console.log(ele.props.className);
+    elements.push(<Cell key={key} classes={classNames} id={node.id} />);
   }
 
   return (
