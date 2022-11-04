@@ -48,8 +48,7 @@ const Maze = (props) => {
   let elements = [];
 
   for (let [key, node] of Object.entries(maze)) {
-    let classNames = getBorderClasses(node);
-    elements.push(<Cell key={key} classes={classNames} id={node.id} />);
+    elements.push(<Cell key={key} classes={getBorderClasses(node)} id={node.id}>{key === '0.0' && <p className="cell">#</p>}{key === `${props.width - 1}.${props.height - 1}` && <p className="cell">@</p>}</Cell>);
   }
 
   return (

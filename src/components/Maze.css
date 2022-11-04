@@ -6,3 +6,9 @@
   grid-row-gap: 0px;
   font-size: 9px;
 }
+
+.cell {
+  font-size: 18px;
+  font-weight: bolder;
+  margin-top: 0px;
+}
