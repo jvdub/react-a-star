@@ -5,7 +5,7 @@ const useMaze = (height, width) => {
     return x + '.' + y;
   };
   
-  const RouletteSelect = (possibleNodes) => {
+  const RandomEdge = (possibleNodes) => {
     const roll = Math.random() * possibleNodes.length;
   
     let sum = 0;
@@ -27,7 +27,7 @@ const useMaze = (height, width) => {
     const neighbors = [...node.potentialEdges];
   
     while (neighbors.length > 0) {
-      const ki = RouletteSelect(neighbors);
+      const ki = RandomEdge(neighbors);
   
       if (!(ki in visited)) {
         const adjacentNode = maze[ki];
@@ -51,18 +51,18 @@ const useMaze = (height, width) => {
   
     for (let y = 0; y < width; y++) {
       for (let x = 0; x < height; x++) {
-        let k = _Position(x, y);
+        let p = _Position(x, y);
   
-        for (let xi = -1; xi <= 1; xi++) {
-          for (let yi = -1; yi <= 1; yi++) {
-            if ((xi === 0 && yi === 0) || (Math.abs(xi) + Math.abs(yi) !== 1)) {
+        for (let x2 = -1; x2 <= 1; x2++) {
+          for (let y2 = -1; y2 <= 1; y2++) {
+            if ((x2 === 0 && y2 === 0) || (Math.abs(x2) + Math.abs(y2) !== 1)) {
               continue;
             }
   
-            let ki = _Position(x + xi, y + yi);
+            let p2 = _Position(x + x2, y + y2);
   
-            if (ki in maze) {
-              maze[k].potentialEdges.push(ki);
+            if (p2 in maze) {
+              maze[p].potentialEdges.push(p2);
             }
           }
         }

@@ -1,6 +1,6 @@
 import useMaze from '../hooks/use-maze';
 import Cell from './Cell';
-import './Maze.css';
+import classes from './Maze.module.css';
   
 const getBorderClasses = (node) => {
   let left = true;
@@ -48,11 +48,11 @@ const Maze = (props) => {
   let elements = [];
 
   for (let [key, node] of Object.entries(maze)) {
-    elements.push(<Cell key={key} classes={getBorderClasses(node)} id={node.id}>{key === '0.0' && <p className="cell">#</p>}{key === `${props.width - 1}.${props.height - 1}` && <p className="cell">@</p>}</Cell>);
+    elements.push(<Cell key={key} classes={getBorderClasses(node)} id={node.id}>{key === '0.0' && <p className={classes.cell}>#</p>}{key === `${props.width - 1}.${props.height - 1}` && <p className={classes.cell}>@</p>}</Cell>);
   }
 
   return (
-    <div className='container'>
+    <div className={classes.container}>
       {elements}
     </div>
   );
