@@ -1,0 +1,23 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(10, 30px);
+  grid-template-rows: repeat(10, 30px);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.left {
+  border-left: 1px solid black;
+}
+
+.right {
+  border-right: 1px solid black;
+}
+
+.top {
+  border-top: 1px solid black;
+}
+
+.bottom {
+  border-bottom: 1px solid black;
+}
